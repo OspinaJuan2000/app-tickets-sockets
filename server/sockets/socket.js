@@ -13,6 +13,10 @@ socket.on('connection', (client) => {
         const next = ticketControl.next();
 
         callback(next);
+
+        client.broadcast.emit('currentStatus', {
+            current: next
+        });
     });
 
     client.emit('currentStatus', {

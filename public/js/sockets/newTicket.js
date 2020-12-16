@@ -11,13 +11,13 @@ socket.on('disconnect', () => {
 });
 
 socket.on('currentStatus', (data) => {
-    btnNewTicket.innerHTML = data.current;
+    newTicketHTML.innerHTML = data.current;
 });
 
 btnNewTicket.addEventListener('click', nextTicket);
 
 function nextTicket() {
     socket.emit('nextTicket', null, (nextTicket) => {
-        btnNewTicket.innerHTML = nextTicket;
+        newTicketHTML.innerHTML = nextTicket;
     });
 };
